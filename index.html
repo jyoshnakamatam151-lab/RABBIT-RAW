@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>R.A.B.B.I.T. RAW</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <header>
+            <div>
+                <h1>🐇 R.A.B.B.I.T. RAW</h1>
+                <p>Rabbit Control Panel</p>
+            </div>
+
+            <div class="status" id="status">
+                ● IDLE
+            </div>
+        </header>
+
+        <main>
+
+            <section class="dashboard">
+
+                <h2>Dashboard</h2>
+
+                <label for="taskInput">Enter your task</label>
+
+                <textarea
+                    id="taskInput"
+                    placeholder="What should Rabbit do?"
+                ></textarea>
+
+                <button id="runButton">RUN</button>
+
+                <div class="current-task">
+                    <h3>Current Task</h3>
+                    <p id="taskDisplay">No task running</p>
+                </div>
+
+            </section>
+            <section class="activity-log">
+
+    <h2>Activity Log</h2>
+
+    <div class="activity-item">
+        <span>●</span>
+        <p>Goal received</p>
+    </div>
+
+    <div class="activity-item">
+        <span>●</span>
+        <p>Discovering capabilities</p>
+    </div>
+
+    <div class="activity-item">
+        <span>●</span>
+        <p>Retrieving information</p>
+    </div>
+
+    <div class="activity-item">
+        <span>●</span>
+        <p>Planning</p>
+    </div>
+
+    <div class="activity-item">
+        <span>●</span>
+        <p>Executing action</p>
+    </div>
+
+    <div class="activity-item">
+        <span>●</span>
+        <p>Evaluating result</p>
+    </div>
+
+</section>
+<section class="capabilities">
+
+    <h2>Discovered Capabilities</h2>
+
+    <div class="capability-item">
+        <div>
+            <h3>📁 Local Files</h3>
+            <p>Access to local files</p>
+        </div>
+        <span>Ready</span>
+    </div>
+
+    <div class="capability-item">
+        <div>
+            <h3>⌨️ CLI Tools</h3>
+            <p>Command-line tools</p>
+        </div>
+        <span>Ready</span>
+    </div>
+
+    <div class="capability-item">
+        <div>
+            <h3>🔗 APIs</h3>
+            <p>External API access</p>
+        </div>
+        <span>Ready</span>
+    </div>
+
+    <div class="capability-item">
+        <div>
+            <h3>🖥️ Applications</h3>
+            <p>Available applications</p>
+        </div>
+        <span>Ready</span>
+    </div>
+
+</section>
+<section class="results">
+
+    <h2>Results</h2>
+
+    <div class="result-box" id="resultDisplay">
+        <p>No result available yet.</p>
+    </div>
+
+</section>
+
+        </main>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
