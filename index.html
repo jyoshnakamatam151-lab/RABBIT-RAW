@@ -3,135 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>R.A.B.B.I.T. RAW</title>
-
+    <title>R.A.B.B.I.T. </title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div class="container">
+<div class="app">
 
-        <header>
+    <!-- ================= SIDEBAR ================= -->
+    <aside class="sidebar">
+
+        <div class="brand">
+            <div class="rabbit-logo">🐇</div>
             <div>
-                <h1>🐇 R.A.B.B.I.T. RAW</h1>
-                <p>Rabbit Control Panel</p>
+                <h1>R.A.B.B.I.T.</h1>
+                <span> Intelligence</span>
+            </div>
+        </div>
+
+        <!-- Recent Tasks -->
+        <div class="sidebar-section">
+
+            <div class="section-title">
+                <span>🕘</span>
+                <span>Recent Tasks</span>
             </div>
 
-            <div class="status" id="status">
-                ● IDLE
+            <div id="historyList" class="history-list">
+                <!-- Tasks appear here -->
             </div>
+
+        </div>
+
+        <!-- Saved Files -->
+        <div class="sidebar-section files-section">
+
+            <div class="section-title">
+                <span>📁</span>
+                <span>Saved Files</span>
+            </div>
+
+            <div id="fileList" class="file-list">
+                <p class="empty-files">No files added</p>
+            </div>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ================= MAIN AREA ================= -->
+    <main class="main">
+
+        <!-- Top Bar -->
+        <header class="topbar">
+
+            <div class="top-title">
+                <h2><R class="A B B I T"></R>
+                </h2>
+                <span id="status" class="status idle">● IDLE</span>
+            </div>
+
+            <!-- ONLY ONE NEW TASK BUTTON -->
+            <button id="topNewTaskButton" class="new-task-button">
+                <span class="plus">+</span>
+                <span>New Task</span>
+            </button>
+
         </header>
 
-        <main>
 
-            <section class="dashboard">
+        <!-- ================= CHAT AREA ================= -->
+        <section class="chat-area">
 
-                <h2>Dashboard</h2>
+            <!-- Welcome Screen -->
+            <div id="welcomeScreen" class="welcome">
 
-                <label for="taskInput">Enter your task</label>
+                <div class="welcome-rabbit">🐇</div>
+
+                <h1>What can R.A.B.B.I.T. do for you?</h1>
+
+                <p>
+                    Give Rabbit a goal and watch it discover,
+                    retrieve, plan, act and evaluate.
+                </p>
+
+                <div class="suggestions">
+
+                    <button class="suggestion">
+                        🔎 Search for information
+                    </button>
+
+                    <button class="suggestion">
+                        🐍 Explain Python
+                    </button>
+
+                    <button class="suggestion">
+                        📊 Analyze data
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Messages -->
+            <div id="messages" class="messages">
+                <!-- Conversation messages appear here -->
+            </div>
+
+
+            <!-- ================= RABBIT ACTIVITY ================= -->
+            <div id="activityContainer" class="activity-container hidden">
+
+                <div class="activity-header">
+                    <span>🐇</span>
+                    <strong>R.A.B.B.I.T. Activity</strong>
+                </div>
+
+                <div class="activity-steps">
+
+                    <div class="activity-step" data-step="discover">
+                        <div class="step-icon">1</div>
+                        <div>
+                            <strong>Discover</strong>
+                            <p>Discovering available capabilities</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-step" data-step="retrieve">
+                        <div class="step-icon">2</div>
+                        <div>
+                            <strong>Retrieve</strong>
+                            <p>Retrieving relevant information</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-step" data-step="plan">
+                        <div class="step-icon">3</div>
+                        <div>
+                            <strong>Plan</strong>
+                            <p>Planning the best approach</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-step" data-step="act">
+                        <div class="step-icon">4</div>
+                        <div>
+                            <strong>Act</strong>
+                            <p>Executing the planned action</p>
+                        </div>
+                    </div>
+
+                    <div class="activity-step" data-step="evaluate">
+                        <div class="step-icon">5</div>
+                        <div>
+                            <strong>Evaluate</strong>
+                            <p>Evaluating the result</p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ================= RESULT ================= -->
+            <div id="resultContainer" class="result-container hidden">
+
+                <div class="result-header">
+                    <span>✓</span>
+                    <strong>Result</strong>
+                </div>
+
+                <div id="resultDisplay" class="result-box">
+                    No result available yet.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= INPUT AREA ================= -->
+        <div class="input-area">
+
+            <div class="input-box">
+
+                <!-- FILE BUTTON -->
+                <button id="fileButton" class="file-button" title="Upload files">
+
+                    <span class="file-icon">📎</span>
+
+                    <span class="file-text">Files</span>
+
+                </button>
+
+                <!-- Hidden file input -->
+                <input
+                    type="file"
+                    id="fileInput"
+                    multiple
+                    hidden
+                >
 
                 <textarea
                     id="taskInput"
-                    placeholder="What should Rabbit do?"
+                    placeholder="Ask R.A.B.B.I.T. to do something..."
+                    rows="1"
                 ></textarea>
 
-                <button id="runButton">RUN</button>
+                <!-- SEND -->
+                <button
+                    id="runButton"
+                    class="send-button"
+                    title="Send"
+                >
+                    ➤
+                </button>
 
-                <div class="current-task">
-                    <h3>Current Task</h3>
-                    <p id="taskDisplay">No task running</p>
-                </div>
+            </div>
 
-            </section>
-            <section class="activity-log">
-
-    <h2>Activity Log</h2>
-
-    <div class="activity-item">
-        <span>●</span>
-        <p>Goal received</p>
-    </div>
-
-    <div class="activity-item">
-        <span>●</span>
-        <p>Discovering capabilities</p>
-    </div>
-
-    <div class="activity-item">
-        <span>●</span>
-        <p>Retrieving information</p>
-    </div>
-
-    <div class="activity-item">
-        <span>●</span>
-        <p>Planning</p>
-    </div>
-
-    <div class="activity-item">
-        <span>●</span>
-        <p>Executing action</p>
-    </div>
-
-    <div class="activity-item">
-        <span>●</span>
-        <p>Evaluating result</p>
-    </div>
-
-</section>
-<section class="capabilities">
-
-    <h2>Discovered Capabilities</h2>
-
-    <div class="capability-item">
-        <div>
-            <h3>📁 Local Files</h3>
-            <p>Access to local files</p>
         </div>
-        <span>Ready</span>
-    </div>
 
-    <div class="capability-item">
-        <div>
-            <h3>⌨️ CLI Tools</h3>
-            <p>Command-line tools</p>
-        </div>
-        <span>Ready</span>
-    </div>
+    </main>
 
-    <div class="capability-item">
-        <div>
-            <h3>🔗 APIs</h3>
-            <p>External API access</p>
-        </div>
-        <span>Ready</span>
-    </div>
+</div>
 
-    <div class="capability-item">
-        <div>
-            <h3>🖥️ Applications</h3>
-            <p>Available applications</p>
-        </div>
-        <span>Ready</span>
-    </div>
-
-</section>
-<section class="results">
-
-    <h2>Results</h2>
-
-    <div class="result-box" id="resultDisplay">
-        <p>No result available yet.</p>
-    </div>
-
-</section>
-
-        </main>
-
-    </div>
-
-    <script src="script.js"></script>
+<script src="script.js"></script>
 
 </body>
 </html>
